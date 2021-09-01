@@ -1,0 +1,29 @@
+.login-form {
+  max-width: 650px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+h2 {
+  padding: 120px 40px;
+}
+.registration-form {
+  max-width: 650px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+h2 {
+  padding: 120px 40px;
+}
+
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.1d334ea1.css.map */
