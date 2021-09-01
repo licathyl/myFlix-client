@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 export class DirectorView extends React.Component {
-
   render() {
     const { director, onBackClick } = this.props;
 
@@ -15,7 +14,14 @@ export class DirectorView extends React.Component {
           <Card.Text>{director.Bio}</Card.Text>
           <Card.Text>Born: {director.Birth}</Card.Text>
         </Card.Body>
-        <Button onClick={() => { onBackClick(null); }} variant="primary">Back</Button>
+        <Button
+          onClick={() => {
+            onBackClick(null);
+          }}
+          variant="primary"
+        >
+          Back
+        </Button>
       </Card>
     );
   }
@@ -26,5 +32,5 @@ DirectorView.propTypes = {
     Name: PropTypes.string.isRequired,
     Bio: PropTypes.string.isRequired,
     Birth: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
 };
