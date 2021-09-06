@@ -25,6 +25,14 @@
 .registration-header {
   padding: 120px 40px;
 }
+.directors-movies {
+  display: block;
+  width: 100%;
+}
+.genre-movies {
+  display: block;
+  width: 100%;
+}
 
 .my-flix {
   color: steelblue;
