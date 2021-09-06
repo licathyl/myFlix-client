@@ -139,6 +139,7 @@ export class MainView extends React.Component {
                         .Director
                     }
                     onBackClick={() => history.goBack()}
+                    movies={movies}
                   />
                 </Col>
               );
@@ -163,6 +164,7 @@ export class MainView extends React.Component {
                         .Genre
                     }
                     onBackClick={() => history.goBack()}
+                    movies={movies}
                   />
                 </Col>
               );
