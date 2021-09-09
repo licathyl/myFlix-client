@@ -13,41 +13,43 @@ export class DirectorView extends React.Component {
       (m) => m.Director.Name === director.Name
     );
 
-    return (
-      <Container>
-        <Card>
-          <Card.Body>
-            <Card.Title>{director.Name}</Card.Title>
-            <Card.Text>{director.Bio}</Card.Text>
-            <Card.Text>Born: {director.Birth}</Card.Text>
-            <Button
-              onClick={() => {
-                onBackClick(null);
-              }}
-              variant="primary"
-            >
-              Back
-            </Button>
-          </Card.Body>
-          <Card.Body>
-            <Card.Title>Related Movies</Card.Title>
-            <Row>
-              <Col>
-                {directorsMovies.map((m, i) => (
-                  <Link
-                    to={`/movies/${m._id}`}
-                    className="directors-movies"
-                    key={i}
-                  >
-                    {m.Title}
-                  </Link>
-                ))}
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
-      </Container>
-    );
+    return ["Dark"].map((variant, idx) => (
+      <Card
+        className="mb-4"
+        border="success"
+        bg={variant.toLowerCase()}
+        key={idx}
+        text={variant.toLowerCase() === "light" ? "dark" : "white"}
+      >
+        <Card.Body>
+          <Card.Title>{director.Name}</Card.Title>
+          <Card.Text>{director.Bio}</Card.Text>
+          <Card.Text>Born: {director.Birth}</Card.Text>
+          <Button
+            onClick={() => {
+              onBackClick(null);
+            }}
+            variant="primary"
+          >
+            Back
+          </Button>
+        </Card.Body>
+        <Card.Body>
+          <Card.Title>Related Movies</Card.Title>
+          <Row>
+            {directorsMovies.map((m, i) => (
+              <Link
+                to={`/movies/${m._id}`}
+                className="directors-movies"
+                key={i}
+              >
+                {m.Title}
+              </Link>
+            ))}
+          </Row>
+        </Card.Body>
+      </Card>
+    ));
   }
 }
 
