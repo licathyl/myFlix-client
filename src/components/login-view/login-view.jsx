@@ -29,7 +29,7 @@ export function LoginView(props) {
 
   return (
     <div className="login-wrapper">
-      <h2 className="login-header">Log in to Cathy's Flix</h2>
+      <h2 className="login-header">Log in to myFlix</h2>
       <div className="login-form">
         <Form>
           <Form.Group as={Row} className="mb-3" controlId="formBasicUsername">
@@ -57,7 +57,7 @@ export function LoginView(props) {
               />
             </Col>
           </Form.Group>
-          <Button variant="primary" type="submit" onClick={handleSubmit}>
+          <Button variant="success" type="submit" onClick={handleSubmit}>
             Submit
           </Button>
         </Form>
