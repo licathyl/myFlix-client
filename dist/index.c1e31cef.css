@@ -55,15 +55,15 @@
   background-color: #141414;
   font-size: 20px;
 }
-.color-card {
-  background-color: #141414;
-}
-
 .app-container {
   background-color: #141414;
 }
 
 html {
+  background-color: #141414;
+}
+
+.color-card {
   background-color: #141414;
 }
 .my-flix {
