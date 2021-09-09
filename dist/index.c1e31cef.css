@@ -1,6 +1,10 @@
-.movie-view {
-  padding: 0px 0px 20px;
+.color-card {
+  background-color: #141414;
 }
+.login-wrapper {
+  color: white;
+}
+
 .login-form {
   max-width: 650px;
   position: fixed;
@@ -8,11 +12,16 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  background-color: #141414;
 }
 
 .login-header {
   padding: 120px 40px;
 }
+.registration-wrapper {
+  color: white;
+}
+
 .registration-form {
   max-width: 650px;
   position: fixed;
@@ -28,12 +37,35 @@
 .directors-movies {
   display: block;
   width: 100%;
+  padding: 5px 15px;
 }
 .genre-movies {
   display: block;
   width: 100%;
+  padding: 5px 15px;
+}
+.profile-view {
+  color: white;
 }
 
+.favorites-movies {
+  color: white;
+}
+.color-nav {
+  background-color: #141414;
+  font-size: 20px;
+}
+.color-card {
+  background-color: #141414;
+}
+
+.app-container {
+  background-color: #141414;
+}
+
+html {
+  background-color: #141414;
+}
 .my-flix {
   color: steelblue;
 }
