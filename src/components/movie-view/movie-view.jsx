@@ -31,8 +31,15 @@ export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
 
-    return (
-      <Card className="movie-view">
+    return ["Dark"].map((variant, idx) => (
+      <Card
+        className="mb-4"
+        style={{ backgroundColor: "#141414" }}
+        border="success"
+        bg={variant.toLowerCase()}
+        key={idx}
+        text={variant.toLowerCase() === "light" ? "dark" : "white"}
+      >
         <Card.Img variant="top" src={movie.ImagePath} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
@@ -65,7 +72,7 @@ export class MovieView extends React.Component {
           </Button>
         </Card.Body>
       </Card>
-    );
+    ));
   }
 }
 
