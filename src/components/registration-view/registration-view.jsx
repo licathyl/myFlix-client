@@ -75,7 +75,7 @@ export function RegistrationView(props) {
 
   return (
     <div className="registration-wrapper">
-      <h2 className="registration-header">Register for Cathy's Flix</h2>
+      <h2 className="registration-header">Register for myFlix</h2>
       <Form className="registration-form" noValidate>
         <Form.Group as={Row} className="mb-3" controlId="formGroupUsername">
           <Form.Label>Username</Form.Label>
