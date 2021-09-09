@@ -1,3 +1,7 @@
+.login-wrapper {
+  color: white;
+}
+
 .login-form {
   max-width: 650px;
   position: fixed;
@@ -5,6 +9,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  background-color: #141414;
 }
 
 .login-header {
