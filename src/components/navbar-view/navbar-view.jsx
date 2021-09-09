@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import { Navbar, Nav, Container } from "react-bootstrap";
 
+import "./navbar-view.scss";
+
 export class NavBar extends React.Component {
   constructor() {
     super();
@@ -17,9 +19,9 @@ export class NavBar extends React.Component {
     if (!user) return null;
 
     return (
-      <Navbar bg="light" variant="light" expand="lg">
+      <Navbar className="color-nav" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">Cathy's Flix</Navbar.Brand>
+          <Navbar.Brand>myFlix</Navbar.Brand>
           <Nav
             variant="pills"
             className="justify-content-end"
