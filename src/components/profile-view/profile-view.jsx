@@ -66,7 +66,7 @@ export class ProfileView extends React.Component {
         }
       )
       .then(() => {
-        alert(movie.Title + " has been removed from your favorites.");
+        alert("Movie was removed from favorites.");
         this.componentDidMount();
       })
       .catch(function (error) {
@@ -118,6 +118,22 @@ export class ProfileView extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
+  }
+
+  setUsername(input) {
+    this.Username = input;
+  }
+
+  setPassword(input) {
+    this.Password = input;
+  }
+
+  setEmail(input) {
+    this.Email = input;
+  }
+
+  setBirthday(input) {
+    this.Birthday = input;
   }
 
   // Delete a user
@@ -213,6 +229,7 @@ export class ProfileView extends React.Component {
             </Button>
           </Col>
         </Row>
+
         <div className="favorites-movies mb-4">
           <h2>My Favorite Movies</h2>
 
@@ -227,38 +244,41 @@ export class ProfileView extends React.Component {
                   movie._id ===
                   FavoriteMovies.find((favMovie) => favMovie === movie._id)
                 ) {
-                  return (
+                  return ["Dark"].map((variant, idx) => (
                     <Col>
-                      <CardGroup className="movie-card-deck">
-                        <Card
-                          className="favorites-item card-content mb-4"
+                      <Card
+                        className="favorites-item card-content mb-4"
+                        bg={variant.toLowerCase()}
+                        key={idx}
+                        text={
+                          variant.toLowerCase() === "light" ? "dark" : "white"
+                        }
+                        style={{ width: "16rem" }}
+                        key={movie._id}
+                      >
+                        <Card.Img
                           style={{ width: "16rem" }}
-                          key={movie._id}
-                        >
-                          <Card.Img
-                            style={{ width: "16rem" }}
-                            className="movieCard"
-                            variant="top"
-                            src={movie.ImagePath}
-                          />
-                          <Card.Body>
-                            <Card.Title className="movie-card-title">
-                              {movie.Title}
-                            </Card.Title>
-                            <Button
-                              size="sm"
-                              className="profile-button remove-favorite"
-                              variant="danger"
-                              value={movie._id}
-                              onClick={(e) => this.handleRemove(e, movie)}
-                            >
-                              Remove
-                            </Button>
-                          </Card.Body>
-                        </Card>
-                      </CardGroup>
+                          className="movieCard"
+                          variant="top"
+                          src={movie.ImagePath}
+                        />
+                        <Card.Body>
+                          <Card.Title className="movie-card-title">
+                            {movie.Title}
+                          </Card.Title>
+                          <Button
+                            size="sm"
+                            className="profile-button remove-favorite"
+                            variant="danger"
+                            value={movie._id}
+                            onClick={(e) => this.handleRemove(e, movie)}
+                          >
+                            Remove
+                          </Button>
+                        </Card.Body>
+                      </Card>
                     </Col>
-                  );
+                  ));
                 }
               })}
           </Row>
