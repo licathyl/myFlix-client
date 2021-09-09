@@ -9,6 +9,7 @@ This is the client side component of a "movies" web application based on its exi
 * Return data (description, genre, director, image URL, whether it's featured or not) about a single movie by title to the user
 * Return data about a genre (description) by name/title (e.g., "Musical")
 * Return data about a director (bio, birth year, death year) by name
+* Allow users to filter movies
 * Allow new users to register
 * Allow users to update their user info (username, password, email, date of birth)
 * Allow users to add a movie to their list of favorites
