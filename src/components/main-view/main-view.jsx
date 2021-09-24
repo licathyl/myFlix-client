@@ -29,6 +29,7 @@ class MainView extends React.Component {
   }
 
   getMovies(token) {
+    console.log(token);
     axios
       .get("https://cathysflix.herokuapp.com/movies", {
         headers: { Authorization: `Bearer ${token}` },
@@ -60,6 +61,7 @@ class MainView extends React.Component {
 
     localStorage.setItem("token", authData.token);
     localStorage.setItem("user", authData.user.Username);
+    localStorage.setItem("userObj", authData.user);
     this.getMovies(authData.token);
   }
 
