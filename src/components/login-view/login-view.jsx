@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { Form, Button, Row, Col } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 import "./login-view.scss";
 
 export function LoginView(props) {
@@ -59,6 +59,9 @@ export function LoginView(props) {
           </Form.Group>
           <Button variant="success" type="submit" onClick={handleSubmit}>
             Submit
+          </Button>
+          <Button>
+            <Link to="/register">Create an account</Link>
           </Button>
         </Form>
       </div>
