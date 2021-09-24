@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { Form, Button, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import "./registration-view.scss";
 
@@ -142,6 +143,9 @@ export function RegistrationView(props) {
         </Form.Group>
         <Button variant="primary" type="submit" onClick={handleSubmit}>
           Register
+        </Button>
+        <Button>
+          <Link to="/">Login</Link>
         </Button>
       </Form>
     </div>
