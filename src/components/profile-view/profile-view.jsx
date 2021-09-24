@@ -19,7 +19,7 @@ export class ProfileView extends React.Component {
       Username: null,
       Password: null,
       Email: null,
-      Birthdate: null,
+      Birthday: null,
       FavoriteMovies: [],
       validated: null,
     };
@@ -30,6 +30,28 @@ export class ProfileView extends React.Component {
     if (accessToken !== null) {
       this.getUser(accessToken);
     }
+
+    axios
+      .get(
+        `https://cathysflix.herokuapp.com/users/${localStorage.getItem(
+          "token"
+        )}`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log();
+        this.setState({
+          Username: res.data.Username,
+          Password: res.data.Password,
+          Email: res.data.Email,
+          Birthday: res.data.Birthday,
+        });
+      })
+      .catch((err) => console.log(err));
   }
 
   // Get user method
@@ -40,11 +62,12 @@ export class ProfileView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
+        console.log();
         this.setState({
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
-          Birthday: response.data.Birthday,
+          Birthday: response.data.Birthday.split("T")[0],
           FavoriteMovies: response.data.FavoriteMovies,
         });
       })
@@ -57,7 +80,6 @@ export class ProfileView extends React.Component {
   handleRemove() {
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("user");
-
     axios
       .delete(
         `https://cathysflix.herokuapp.com/users/${username}/movies/${movie._id}`,
@@ -67,7 +89,7 @@ export class ProfileView extends React.Component {
       )
       .then(() => {
         alert("Movie was removed from favorites.");
-        this.componentDidMount();
+        // this.componentDidMount();
       })
       .catch(function (error) {
         console.log(error);
@@ -95,15 +117,18 @@ export class ProfileView extends React.Component {
     const username = localStorage.getItem("user");
 
     axios
-      .put(`https://cathysflix.herokuapp.com/users/${username}`, {
-        headers: { Authorization: `Bearer ${token}` },
-        data: {
+      .put(
+        `https://cathysflix.herokuapp.com/users/${username}`,
+        {
           Username: newUsername ? newUsername : this.state.Username,
           Password: newPassword ? newPassword : this.state.Password,
           Email: newEmail ? newEmail : this.state.Email,
           Birthday: newBirthday ? newBirthday : this.state.Birthday,
         },
-      })
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((response) => {
         alert("Saved Changes");
         this.setState({
@@ -121,19 +146,27 @@ export class ProfileView extends React.Component {
   }
 
   setUsername(input) {
-    this.Username = input;
+    this.setState({
+      Username: input,
+    });
   }
 
   setPassword(input) {
-    this.Password = input;
+    this.setState({
+      Password: input,
+    });
   }
 
   setEmail(input) {
-    this.Email = input;
+    this.setState({
+      Email: input,
+    });
   }
 
   setBirthday(input) {
-    this.Birthday = input;
+    this.setState({
+      Birthday: input.toString(),
+    });
   }
 
   // Delete a user
@@ -174,10 +207,10 @@ export class ProfileView extends React.Component {
               onSubmit={(e) =>
                 this.handleUpdate(
                   e,
-                  this.Username,
-                  this.Password,
-                  this.Email,
-                  this.Birthdate
+                  this.state.Username,
+                  this.state.Password,
+                  this.state.Email,
+                  this.state.Birthday
                 )
               }
             >
@@ -186,6 +219,8 @@ export class ProfileView extends React.Component {
                 <Form.Control
                   type="text"
                   placeholder="Change Username"
+                  value={this.state.Username}
+                  disabled="disabled"
                   onChange={(e) => this.setUsername(e.target.value)}
                 />
               </Form.Group>
@@ -194,6 +229,7 @@ export class ProfileView extends React.Component {
                 <Form.Label className="form-label">Password</Form.Label>
                 <Form.Control
                   type="password"
+                  value={this.state.Password}
                   placeholder="New Password"
                   onChange={(e) => this.setPassword(e.target.value)}
                 />
@@ -203,6 +239,7 @@ export class ProfileView extends React.Component {
                 <Form.Label className="form-label">Email</Form.Label>
                 <Form.Control
                   type="email"
+                  value={this.state.Email}
                   placeholder="Change Email"
                   onChange={(e) => this.setEmail(e.target.value)}
                 />
@@ -213,6 +250,7 @@ export class ProfileView extends React.Component {
                 <Form.Control
                   type="date"
                   placeholder="Change Birthday"
+                  value={this.state.Birthday}
                   onChange={(e) => this.setBirthday(e.target.value)}
                 />
               </Form.Group>
