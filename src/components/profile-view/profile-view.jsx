@@ -77,7 +77,7 @@ export class ProfileView extends React.Component {
   }
 
   // Remove movie from favorites
-  handleRemove() {
+  handleRemove(movie) {
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("user");
     axios
@@ -89,7 +89,7 @@ export class ProfileView extends React.Component {
       )
       .then(() => {
         alert("Movie was removed from favorites.");
-        // this.componentDidMount();
+        this.componentDidMount();
       })
       .catch(function (error) {
         console.log(error);
@@ -309,7 +309,7 @@ export class ProfileView extends React.Component {
                             className="profile-button remove-favorite"
                             variant="danger"
                             value={movie._id}
-                            onClick={(e) => this.handleRemove(e, movie)}
+                            onClick={() => this.handleRemove(movie)}
                           >
                             Remove
                           </Button>
@@ -332,6 +332,7 @@ ProfileView.propTypes = {
       PropTypes.shape({
         _id: PropTypes.string.isRequired,
         Title: PropTypes.string.isRequired,
+        ImagePath: PropTypes.string.isRequired,
       })
     ),
     Username: PropTypes.string.isRequired,
