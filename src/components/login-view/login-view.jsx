@@ -23,13 +23,13 @@ export function LoginView(props) {
         props.onLoggedIn(data);
       })
       .catch((e) => {
-        console.log("Wrong email or password");
+        alert("Incorrect email or password");
       });
   };
 
   return (
     <div className="login-wrapper">
-      <h2 className="login-header">Log in to myFlix</h2>
+      <h2 className="login-header">Login to myFlix</h2>
       <div className="login-form">
         <Form>
           <Form.Group as={Row} className="mb-3" controlId="formBasicUsername">
@@ -60,9 +60,13 @@ export function LoginView(props) {
           <Button variant="success" type="submit" onClick={handleSubmit}>
             Submit
           </Button>
-          <Button>
-            <Link to="/register">Create an account</Link>
-          </Button>
+          <br />
+          <br />
+          <h3>Don't have an account?</h3>
+          <br />
+          <Link to="/register">
+            <Button variant="success">Create an account</Button>
+          </Link>
         </Form>
       </div>
     </div>
