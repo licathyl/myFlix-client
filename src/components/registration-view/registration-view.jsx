@@ -34,7 +34,7 @@ export function RegistrationView(props) {
           window.open("/", "_self"); // the second argument '_self' is necessary so that the page will open in the current tab
         })
         .catch((e) => {
-          console.log("Error registering the user");
+          alert("Error registering the user");
         });
     }
   };
@@ -89,7 +89,11 @@ export function RegistrationView(props) {
               onChange={(e) => setUsername(e.target.value)}
             />
             {Object.keys(usernameError).map((key) => {
-              return <div key={key}>{usernameError[key]}</div>;
+              return (
+                <div className="form-error" key={key}>
+                  {usernameError[key]}
+                </div>
+              );
             })}
           </Col>
         </Form.Group>
@@ -105,7 +109,11 @@ export function RegistrationView(props) {
               onChange={(e) => setPassword(e.target.value)}
             />
             {Object.keys(passwordError).map((key) => {
-              return <div key={key}>{passwordError[key]}</div>;
+              return (
+                <div className="form-error" key={key}>
+                  {passwordError[key]}
+                </div>
+              );
             })}
           </Col>
         </Form.Group>
@@ -121,7 +129,11 @@ export function RegistrationView(props) {
               onChange={(e) => setEmail(e.target.value)}
             />
             {Object.keys(emailError).map((key) => {
-              return <div key={key}>{emailError[key]}</div>;
+              return (
+                <div className="form-error" key={key}>
+                  {emailError[key]}
+                </div>
+              );
             })}
           </Col>
         </Form.Group>
@@ -141,12 +153,16 @@ export function RegistrationView(props) {
             })}
           </Col>
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={handleSubmit}>
+        <Button variant="success" type="submit" onClick={handleSubmit}>
           Register
         </Button>
-        <Button>
-          <Link to="/">Login</Link>
-        </Button>
+        <br />
+        <br />
+        <h3>Already have an account?</h3>
+        <br />
+        <Link to="/">
+          <Button variant="success">Login</Button>
+        </Link>
       </Form>
     </div>
   );
