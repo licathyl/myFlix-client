@@ -6,11 +6,6 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import "./navbar-view.scss";
 
 export class NavBar extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   render() {
     const { user } = this.props;
     const movies = `/`;
@@ -21,7 +16,7 @@ export class NavBar extends React.Component {
     return (
       <Navbar className="color-nav" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand>myFlix</Navbar.Brand>
+          <Navbar.Brand href="/">myFlix</Navbar.Brand>
           <Nav
             variant="pills"
             className="justify-content-end"
