@@ -15,6 +15,9 @@ This is the client side component of a "movies" web application based on its exi
 ## User Stories
 * As a user, I want to be able to receive information on movies, directors, and genres so that I can learn more about movies I've watched or am interested in.
 * As a user, I want to be able to create a profile so I can save data about my favorite movies.
+## Project Links
+* GitHub link: https://github.com/licathyl/myFlix-client.git
+* Public API link: https://myflix-cathyli.netlify.app/
 ## Project Dependencies
 * Javascript
 * CSS
